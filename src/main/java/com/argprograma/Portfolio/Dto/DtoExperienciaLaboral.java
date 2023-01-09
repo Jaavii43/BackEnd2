@@ -1,5 +1,5 @@
 
-package com.profile.Prueba.Dto;
+package com.argprograma.Portfolio.Dto;
 
 import lombok.Getter;
 import lombok.Setter;

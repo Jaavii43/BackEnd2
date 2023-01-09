@@ -1,11 +1,11 @@
 
-package com.profile.Prueba.service;
+package com.argprograma.Portfolio.Service;
 
+import com.argprograma.Portfolio.Repository.RExperienciaLaboral;
+import com.argprograma.Portfolio.entity.ExperienciaLaboral;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
-import com.profile.Prueba.Repository.RExperienciaLaboral;
-import com.profile.Prueba.entity.ExperienciaLaboral;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

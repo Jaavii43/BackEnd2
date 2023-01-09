@@ -1,7 +1,7 @@
 
 package com.argprograma.Portfolio.Repository;
 
-import com.profile.Prueba.entity.Educacion;
+import com.argprograma.Portfolio.entity.Educacion;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
