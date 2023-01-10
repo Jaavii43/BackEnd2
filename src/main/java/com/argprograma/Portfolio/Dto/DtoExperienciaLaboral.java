@@ -12,6 +12,7 @@ public class DtoExperienciaLaboral {
     private String trabajo;
     
     public DtoExperienciaLaboral(String empresa, String fecha_inicio, String fecha_fin, String trabajo ) {
+        
         this.empresa = empresa;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
