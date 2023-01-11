@@ -12,24 +12,51 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class SExperienciaLaboral {
+public class SExperienciaLaboral implements ISExperienciaLaboral{
     @Autowired
     RExperienciaLaboral rExperinciaLaboral;
-    
-    public List<ExperienciaLaboral> list(){
-        return rExperinciaLaboral.findAll();
+
+    @Override
+    public List<ExperienciaLaboral> getEmpresa() {
+        List<ExperienciaLaboral> listaEmpresas =  rExperinciaLaboral.findAll();
+        return listaEmpresas;
     }
-    public Optional<ExperienciaLaboral> getOne(Long id){
-        return rExperinciaLaboral.findById(id);
+    @Override
+    public void saveEmpresa(ExperienciaLaboral empre) {
+        rExperinciaLaboral.save(empre);
     }
-    public Optional<ExperienciaLaboral> getByEmpresa(String empresa){
-        return rExperinciaLaboral.findByEmpresa(empresa);
-    }
-    public void save(ExperienciaLaboral exp){
-        rExperinciaLaboral.save(exp);
-    }
-     public void delete(Long Id){
+
+    @Override
+    public void deleteEmpresa(Long id) {
         rExperinciaLaboral.deleteById(id);
     }
+
+    @Override
+    public ExperienciaLaboral findEmpresa(Long id) {
+        ExperienciaLaboral empre=rExperinciaLaboral.findById(id).orElse(null);
+        return empre;
+    }
+   
          
+//    public List<ExperienciaLaboral> list(){
+//        return rExperinciaLaboral.findAll();
+//    }
+//    public Optional<ExperienciaLaboral> getOne(Long id){
+//        return rExperinciaLaboral.findById(id);
+//    }
+//    public Optional<ExperienciaLaboral> getByEmpresa(String empresa){
+//        return rExperinciaLaboral.findByEmpresa(empresa);
+//    }
+//    public void save(ExperienciaLaboral exp){
+//        rExperinciaLaboral.save(exp);
+//    }
+//    public void delete(Long Id){
+//        rExperinciaLaboral.deleteById(id);
+//    }
+    
+//    public ExperienciaLaboral findExperienciaLaboral (Long id) {
+//        ExperienciaLaboral expe=rExperinciaLaboral.findById(id) .orElse(null);
+//        return expe;
+//    }
+
 }
