@@ -20,35 +20,38 @@ public class CExperienciaLaboral {
     @Autowired
     SExperienciaLaboral expeServ;
 
-    @PostMapping ("new/experiencialaboral")
-    public void agregarExperienciaLaboral (@RequestBody ExperienciaLaboral ExperiServ){
-        expeServ.save(ExperiServ);
-    }
-    @GetMapping ("ver/experiencialaboral")
+    @GetMapping("ver/experiencialaboral")
     @ResponseBody  
     public List<ExperienciaLaboral> verExperienciaLaboral(){
-        return expeServ.list();
-    } 
+        return expeServ.getEmpresa();
+    }
+    
+    @PostMapping("new/experiencialaboral")
+    public void agregarExperienciaLaboral (@RequestBody ExperienciaLaboral ExperiServ){
+        expeServ.saveEmpresa(ExperiServ);
+    }
+
     @DeleteMapping("delete/(id)")
     public void eliminarExperienciaLaboral(@PathVariable Long id)    {
-        expeServ.delete(id);
+        expeServ.deleteEmpresa(id);
     }
     
     @PutMapping ("personas/editar/{id}")
         public ExperienciaLaboral editExperienciaLaboral (@PathVariable Long id,
-                            @RequestParam ("empresa") String nuevaempresa,
-                            @RequestParam ("apellido") String nuevfecha_inicio,
-                            @RequestParam ("edad") int nuevafecha_fin,
-                            @RequestParam ("trabajo") String nuevotrabajo){
+                            @RequestParam ("empresa") String nuevaEmpresa,
+                            @RequestParam ("fecha_inicio") String nuevaFecha_inicio,
+                            @RequestParam ("fecha_fin") String nuevaFecha_fin,
+                            @RequestParam ("trabajo") String nuevoTrabajo){
    
-      ExperienciaLaboral ExperiServ = SExperienciaLaboral.findExperienciaLaboral (id);
+      ExperienciaLaboral ExperiServ=expeServ.findEmpresa(id);
     
-      ExperiServ.setEmpresa(nuevaempresa);
-      perso.setNombre(nuevoNombre);
-      perso.setEdad(nuevaEdad);
-      interPersona.savePersona(perso);
-     
-      return perso;
+      ExperiServ.setEmpresa(nuevaEmpresa);
+      ExperiServ.setFecha_inicio(nuevaFecha_inicio);
+      ExperiServ.setFecha_fin(nuevaFecha_fin);
+      ExperiServ.setTrabajo(nuevoTrabajo);
+      expeServ.saveEmpresa(ExperiServ);
+     //retorna la nueva persona
+      return ExperiServ;
         }
 
 }
