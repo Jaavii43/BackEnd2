@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RExperienciaLaboral extends JpaRepository<ExperienciaLaboral,Long>  {
 
-    public Optional<ExperienciaLaboral> findByEmpresa(String empresa);
+//    public Optional<ExperienciaLaboral> findByEmpresa(String empresa);
 
-    public void deleteById(SingularAttribute<AbstractPersistable, Serializable> id);
+//    public void deleteById(SingularAttribute<AbstractPersistable, Serializable> id);
     
 }

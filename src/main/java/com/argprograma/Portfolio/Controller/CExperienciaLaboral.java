@@ -20,23 +20,23 @@ public class CExperienciaLaboral{
     private ISExperienciaLaboral expeServ;
 
     @GetMapping("ver/experiencialaboral")
-    public List<ExperienciaLaboral>verExperienciaLaboral(){
+    public List<ExperienciaLaboral>getEmpresa(){
         return expeServ.getEmpresa();
     }
     
     @PostMapping("new/experiencialaboral")
-    public String agregarExperienciaLaboral(@RequestBody ExperienciaLaboral ExperiServ){
-        expeServ.saveEmpresa(ExperiServ);
+    public String agregarExperienciaLaboral(@RequestBody ExperienciaLaboral expe){
+        expeServ.saveEmpresa(expe);
         return "La persona fue creada correctamente";
    }
 
     @DeleteMapping("delete/{id}")
-    public String eliminarExperienciaLaboral(@PathVariable Long id)
+    public String deleteEmpresa(@PathVariable Long id)
     {
         expeServ.deleteEmpresa(id);
         return "La persona fue borrada correctamente";
     }
-    @PutMapping ("personas/editar/{id}")
+    @PutMapping ("editar/{id}")
         public ExperienciaLaboral editExperienciaLaboral(@PathVariable Long id,
                             @RequestParam ("empresa") String nuevaEmpresa,
                             @RequestParam ("fecha_inicio") String nuevaFecha_inicio,

@@ -19,7 +19,10 @@ public class ExperienciaLaboral {
  private String fecha_fin;
  private String trabajo;
  
-     public ExperienciaLaboral(String empresa, String fecha_inicio, String fecha_fin, String trabajo) {
+    public ExperienciaLaboral(){        
+    } 
+    
+    public ExperienciaLaboral(String empresa, String fecha_inicio, String fecha_fin, String trabajo) {
         this.empresa = empresa;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;

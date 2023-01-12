@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ISExperienciaLaboral{
 
- public List<ExperienciaLaboral>getEmpresa ();
+ public List<ExperienciaLaboral>getEmpresa();
 
  public void saveEmpresa(ExperienciaLaboral expe);
 

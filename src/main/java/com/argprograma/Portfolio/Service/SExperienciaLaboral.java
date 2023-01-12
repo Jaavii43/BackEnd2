@@ -17,13 +17,13 @@ public class SExperienciaLaboral implements ISExperienciaLaboral {
     private RExperienciaLaboral rExperinciaLaboral;
 
     @Override
-    public List<ExperienciaLaboral> getEmpresa() {
-        List<ExperienciaLaboral> listaEmpresas =  rExperinciaLaboral.findAll();
+    public List<ExperienciaLaboral>getEmpresa() {
+        List<ExperienciaLaboral> listaEmpresas = rExperinciaLaboral.findAll();
         return listaEmpresas;
     }
-   @Override
-    public void saveEmpresa(ExperienciaLaboral empre) {
-        rExperinciaLaboral.save(empre);
+    @Override
+    public void saveEmpresa(ExperienciaLaboral expe){
+        rExperinciaLaboral.save(expe);
    }
 
     @Override
@@ -31,7 +31,7 @@ public class SExperienciaLaboral implements ISExperienciaLaboral {
         rExperinciaLaboral.deleteById(id);
     }
 
-   @Override
+    @Override
     public ExperienciaLaboral findEmpresa(Long id) {
         ExperienciaLaboral empre=rExperinciaLaboral.findById(id).orElse(null);
         return empre;
