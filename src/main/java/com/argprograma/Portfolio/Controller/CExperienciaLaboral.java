@@ -1,6 +1,6 @@
 
 package com.argprograma.Portfolio.Controller;
-import com.argprograma.Portfolio.Service.SExperienciaLaboral;
+import com.argprograma.Portfolio.Service.ISExperienciaLaboral;
 import com.argprograma.Portfolio.entity.ExperienciaLaboral;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,33 +11,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CExperienciaLaboral {
+public class CExperienciaLaboral{
     
     @Autowired
-    SExperienciaLaboral expeServ;
+    private ISExperienciaLaboral expeServ;
 
     @GetMapping("ver/experiencialaboral")
-    @ResponseBody  
-    public List<ExperienciaLaboral> verExperienciaLaboral(){
+    public List<ExperienciaLaboral>verExperienciaLaboral(){
         return expeServ.getEmpresa();
     }
     
     @PostMapping("new/experiencialaboral")
-    public void agregarExperienciaLaboral (@RequestBody ExperienciaLaboral ExperiServ){
+    public String agregarExperienciaLaboral(@RequestBody ExperienciaLaboral ExperiServ){
         expeServ.saveEmpresa(ExperiServ);
-    }
+        return "La persona fue creada correctamente";
+   }
 
-    @DeleteMapping("delete/(id)")
-    public void eliminarExperienciaLaboral(@PathVariable Long id)    {
+    @DeleteMapping("delete/{id}")
+    public String eliminarExperienciaLaboral(@PathVariable Long id)
+    {
         expeServ.deleteEmpresa(id);
+        return "La persona fue borrada correctamente";
     }
-    
     @PutMapping ("personas/editar/{id}")
-        public ExperienciaLaboral editExperienciaLaboral (@PathVariable Long id,
+        public ExperienciaLaboral editExperienciaLaboral(@PathVariable Long id,
                             @RequestParam ("empresa") String nuevaEmpresa,
                             @RequestParam ("fecha_inicio") String nuevaFecha_inicio,
                             @RequestParam ("fecha_fin") String nuevaFecha_fin,

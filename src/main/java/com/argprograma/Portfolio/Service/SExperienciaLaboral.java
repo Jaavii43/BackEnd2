@@ -12,26 +12,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
-public class SExperienciaLaboral implements ISExperienciaLaboral{
+public class SExperienciaLaboral implements ISExperienciaLaboral {
     @Autowired
-    RExperienciaLaboral rExperinciaLaboral;
+    private RExperienciaLaboral rExperinciaLaboral;
 
     @Override
     public List<ExperienciaLaboral> getEmpresa() {
         List<ExperienciaLaboral> listaEmpresas =  rExperinciaLaboral.findAll();
         return listaEmpresas;
     }
-    @Override
+   @Override
     public void saveEmpresa(ExperienciaLaboral empre) {
         rExperinciaLaboral.save(empre);
-    }
+   }
 
     @Override
     public void deleteEmpresa(Long id) {
         rExperinciaLaboral.deleteById(id);
     }
 
-    @Override
+   @Override
     public ExperienciaLaboral findEmpresa(Long id) {
         ExperienciaLaboral empre=rExperinciaLaboral.findById(id).orElse(null);
         return empre;

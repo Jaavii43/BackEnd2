@@ -55,7 +55,7 @@
                 <dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<scope>3.9</scope>
+			<scope>3.12.0</scope>
 		</dependency>
                 <dependency>
                     <groupId>mysql</groupId>
