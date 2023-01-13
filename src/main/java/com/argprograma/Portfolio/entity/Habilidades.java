@@ -10,6 +10,7 @@ import lombok.Setter;
 
 @Getter @Setter
 @Entity
+
 public class Habilidades {
 
 
@@ -17,9 +18,9 @@ public class Habilidades {
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id;
  private String area;
- private String porcentaje;  
+ private int porcentaje;  
  
-   public Habilidades(String area, String porcentaje) {
+   public Habilidades(String area, int porcentaje) {
         this.area = area;
         this.porcentaje = porcentaje;
     }

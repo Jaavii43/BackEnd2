@@ -2,6 +2,7 @@
 package com.argprograma.Portfolio.Controller;
 import com.argprograma.Portfolio.Service.ISExperienciaLaboral;
 import com.argprograma.Portfolio.entity.ExperienciaLaboral;
+import java.sql.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,8 +40,8 @@ public class CExperienciaLaboral{
     @PutMapping ("editar/{id}")
         public ExperienciaLaboral editExperienciaLaboral(@PathVariable Long id,
                             @RequestParam ("empresa") String nuevaEmpresa,
-                            @RequestParam ("fecha_inicio") String nuevaFecha_inicio,
-                            @RequestParam ("fecha_fin") String nuevaFecha_fin,
+                            @RequestParam ("fecha_inicio")Date nuevaFecha_inicio,
+                            @RequestParam ("fecha_fin") Date nuevaFecha_fin,
                             @RequestParam ("trabajo") String nuevoTrabajo){
    
       ExperienciaLaboral ExperiServ=expeServ.findEmpresa(id);

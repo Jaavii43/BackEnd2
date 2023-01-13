@@ -4,31 +4,37 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Temporal;
+import java.sql.Date;
+
+
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
 @Entity
-
-
 public class Educacion {
  
- @Id
- @GeneratedValue(strategy = GenerationType.IDENTITY)
- private Long id;
- private String escuela;
- private String fecha_inicio;
- private String fecha_fin;
- private String titulo;
- 
- 
- 
-    public Educacion(String escuela, String fecha_inicio, String fecha_fin, String titulo) {
-        this.escuela = escuela;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
-        this.titulo = titulo;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String escuela;
+    @Temporal(jakarta.persistence.TemporalType.DATE)
+    private Date fecha_inicio;
+    @Temporal(jakarta.persistence.TemporalType.DATE)
+    private Date fecha_fin;
+    private String titulo;
+        
+        public Educacion(){
+            
+        }
+        
+        public Educacion(String escuela, Date fecha_inicio, Date fecha_fin, String titulo) {
+           this.escuela = escuela;
+           this.fecha_inicio = fecha_inicio;
+           this.fecha_fin = fecha_fin;
+           this.titulo = titulo;
+        }
 
 
  

@@ -46,7 +46,7 @@ public class CHabilidades {
             Habilidades habil=habServ.findSkin(id);
       
             habil.setArea(nuevaArea);
-            habil.setPorcentaje(nuevaArea);
+            habil.setPorcentaje(nuevoPorcentaje);
             return habil;
         }
     
