@@ -38,10 +38,7 @@ public class CSobremi {
         return "El perfil fue borrado";
     }
     @PutMapping ("editar/Sobremi/{id}")
-        public Sobremi editSobremi(@PathVariable Long id,
-                            @RequestParam ("nombre") String nuevoNombre,
-                            @RequestParam ("posicion") String nuevaPosicion,
-                            @RequestParam ("descripcion") String nuevadescripcion){
+        public Sobremi editSobremi(@PathVariable Long id, @RequestParam("nombre") String nuevoNombre, @RequestParam("posicion") String nuevaPosicion, @RequestParam("descripcion") String nuevadescripcion){
    
             Sobremi sobreServ=sobServ.findSobremi(id);
     
