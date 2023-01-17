@@ -30,5 +30,9 @@ public class Habilidades {
         this.area = area;
         this.porcentaje = porcentaje;
     }
+   
+   public Habilidades(){
+       
+   }
 }
   

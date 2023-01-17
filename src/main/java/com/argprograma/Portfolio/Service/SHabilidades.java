@@ -17,10 +17,15 @@ public class SHabilidades implements ISHabilidades {
 
     @Override
     public List<Habilidades> getSkins() {
-        List<Habilidades> listaEscuelas = rHabilidades.findAll();
-        return listaEscuelas;
+        List<Habilidades> listaHabilidades = rHabilidades.findAll();
+        return listaHabilidades;
     }
 
+    @Override
+    public Detail<Habilidades> getByIdSkins() {
+        Detail<Habilidades> listaHabilidades = rHabilidades.findAll();
+        return listaHabilidades;
+    }    
     @Override
     public void saveSkins(Habilidades hab) {
         rHabilidades.save(hab);
@@ -36,5 +41,7 @@ public class SHabilidades implements ISHabilidades {
         Habilidades hab=rHabilidades.findById(id).orElse(null);
         return hab;
     }
+
+   
     
 }
