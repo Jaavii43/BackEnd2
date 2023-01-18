@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping("habilidad")
-@CrossOrigin(origins = "http://localhost:4200")
+// @Controller
+// @RequestMapping("habilidad")
+// @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class CHabilidades {
     
@@ -31,12 +31,7 @@ public class CHabilidades {
     public List<Habilidades>getHabilidades(){
         return habServ.getSkins();
     }
-    
-    @GetMapping("detalle/Habilidad")
-    public ResponseEntity<Habilidades> getById(@PathVariable("id")int id){
-        
-    }
-    
+
     @PostMapping("new/habilidad")
     public String agregarHabilidades(@RequestBody Habilidades hab){
         habServ.saveSkins(hab);
@@ -59,6 +54,7 @@ public class CHabilidades {
       
             habil.setArea(nuevaArea);
             habil.setPorcentaje(nuevoPorcentaje);
+            habServ.saveSkins(habil);
             return habil;
         }
     
