@@ -27,28 +27,33 @@ public class CHabilidades {
     @Autowired
     private ISHabilidades habServ;
 
-    @GetMapping("ver/habilidades")
+    @GetMapping("habilidades/ver")
     public List<Habilidades>getHabilidades(){
         return habServ.getSkins();
     }
-
-    @PostMapping("new/habilidad")
+    @GetMapping("habilidad/traer")
+    public Habilidades findhabilidades(){
+        return habServ.findSkin((long)1);
+    }
+    
+    
+    @PostMapping("habilidad/new")
     public String agregarHabilidades(@RequestBody Habilidades hab){
         habServ.saveSkins(hab);
         return "La habilidad fue creada correctamente";
    }
 
-    @DeleteMapping("delete/habilidad/{id}")
+    @DeleteMapping("habilidad/delete/{id}")
     public String deleteHabilidad(@PathVariable Long id)
     {
         habServ.deleteSkin(id);
         return "La persona fue borrada correctamente";
     }
-    @PutMapping ("editar/habilidad/{id}")
+    @PutMapping ("habilidad/editar/{id}")
         public Habilidades editHabilidades(@PathVariable Long id,
                             @RequestParam ("area") String nuevaArea,
                             @RequestParam ("porcentaje") int nuevoPorcentaje)
-                            {
+        {
    
             Habilidades habil=habServ.findSkin(id);
       
@@ -57,5 +62,9 @@ public class CHabilidades {
             habServ.saveSkins(habil);
             return habil;
         }
+        
+    
+    )
+    
     
 }
