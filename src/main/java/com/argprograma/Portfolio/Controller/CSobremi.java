@@ -20,24 +20,24 @@ public class CSobremi {
     @Autowired
     private ISSobremi sobServ;
     
-    @GetMapping("ver/Sobremi")
+    @GetMapping("sobremi/ver")
     public List<Sobremi>getSobremi(){
         return sobServ.getSobremi();
     }
     
-    @PostMapping("new/Sobremi")
+    @PostMapping("sobremi/new")
     public String agregarSobremi(@RequestBody Sobremi sobre){
         sobServ.saveSobremi(sobre);
         return "Se Actualizo perfil";
    }
 
-    @DeleteMapping("delete/Sobremi/{id}")
+    @DeleteMapping("sobremi/delete/{id}")
     public String deleteSobremi(@PathVariable Long id)
     {
         sobServ.deleteSobremi(id);
         return "El perfil fue borrado";
     }
-    @PutMapping ("editar/Sobremi/{id}")
+    @PutMapping ("sobremi/edit/{id}")
         public Sobremi editSobremi(@PathVariable Long id, @RequestParam("nombre") String nuevoNombre, @RequestParam("posicion") String nuevaPosicion, @RequestParam("descripcion") String nuevadescripcion){
    
             Sobremi sobreServ=sobServ.findSobremi(id);

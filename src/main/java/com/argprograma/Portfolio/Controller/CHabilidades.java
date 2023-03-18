@@ -27,7 +27,7 @@ public class CHabilidades {
     @Autowired
     private ISHabilidades habServ;
 
-    @GetMapping("habilidades/ver")
+    @GetMapping("habilidad/ver")
     public List<Habilidades>getHabilidades()
         {
         return habServ.getSkins();
